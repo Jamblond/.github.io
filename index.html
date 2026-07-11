@@ -63,10 +63,10 @@
       align-items: center;
     }
 
-    /* === GRID LAYOUT === */
+    /* === GRID LAYOUT - MOBILE FIRST === */
     .comics-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      grid-template-columns: 1fr;
       gap: clamp(1rem, 4vw, 2rem);
       padding: clamp(1.5rem, 5vw, 2.5rem);
       max-width: 1200px;
@@ -146,33 +146,34 @@
       line-height: 1.5;
     }
 
-    /* === MOBILE FIRST BREAKPOINT === */
-    @media (max-width: 768px) {
+    /* === TABLET BREAKPOINT (600px) === */
+    @media (min-width: 600px) {
       .comics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      }
-
-      nav {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
-      .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 480px) {
+    /* === TABLET BREAKPOINT (768px) === */
+    @media (min-width: 768px) {
       .comics-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        gap: 1rem;
-        padding: 1rem;
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      nav a {
-        padding: 0.5rem 0.75rem;
-        font-size: 0.85rem;
+      nav {
+        width: auto;
+        justify-content: flex-end;
+      }
+
+      .header-inner {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
+
+    /* === DESKTOP BREAKPOINT (1024px) === */
+    @media (min-width: 1024px) {
+      .comics-grid {
+        grid-template-columns: repeat(4, 1fr);
       }
     }
   </style>
